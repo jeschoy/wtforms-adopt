@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block title %}{{pet.name}}{% endblock %} {% block
+content %}
+<div class="p-5">
+  <h1>{{pet.name}}</h1>
+  <div class="p-3 img-fluid"><img src="{{pet.image_url()}}" alt="" /></div>
+</div>
+
+<form class="p-5 form-group form-control" method="POST">
+  <h2 class="">Update {{pet.name}}</h2>
+  {% include "_form.html" %}
+  <button class="btn btn-primary" type="submit">Update</button>
+</form>
+{% endblock %}

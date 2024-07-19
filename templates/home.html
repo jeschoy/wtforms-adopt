@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block title %}Available Pets{% endblock %} {% block
+content %}
+<div class="p-5">
+  <h1>Pets available for adoption:</h1>
+</div>
+<div class="pets-container flex-wrap row container p-5">
+  {% for pet in pets %}
+  <div class="col-3 p-3">
+    <a href="/"
+      ><img class="img-thumbnail" src="{{pet.image_url()}}" alt=""
+    /></a>
+    <div>
+      <a href="/{{pet.id}}">{{ pet.name }}</a> {% if pet.age %}Age:
+      <b>{{ pet.age }} years</b> {% else %} Age: <b>Unknown</b>{% endif %}
+    </div>
+    {% if pet.available %}
+    <div><b>Available!</b></div>
+    {% endif %}
+  </div>
+  {% endfor %}
+  <a href="/add">Add pets!</a>
+</div>
+{% endblock %}
